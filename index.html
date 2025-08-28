@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的中文博客</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>我的博客</h1>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">首页</a>
+                <a href="#articles" class="nav-link">文章</a>
+                <a href="#about" class="nav-link">关于我</a>
+                <a href="#contact" class="nav-link">联系</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主页横幅 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">欢迎来到我的博客</h1>
+            <p class="hero-subtitle">分享技术、生活与思考</p>
+            <a href="#articles" class="cta-button">开始阅读</a>
+        </div>
+        <div class="hero-decoration">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文章列表 -->
+    <section id="articles" class="articles">
+        <div class="container">
+            <h2 class="section-title">最新文章</h2>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="date">2024年1月15日</span>
+                            <span class="category">技术</span>
+                        </div>
+                        <h3 class="article-title">现代前端开发最佳实践</h3>
+                        <p class="article-excerpt">探索现代前端开发中的最佳实践，包括组件化架构、状态管理、性能优化等关键概念...</p>
+                        <a href="#" class="read-more">阅读全文</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="date">2024年1月10日</span>
+                            <span class="category">思考</span>
+                        </div>
+                        <h3 class="article-title">关于学习方法的一些思考</h3>
+                        <p class="article-excerpt">在这个信息爆炸的时代，如何有效地学习新知识？分享一些个人的学习心得和方法...</p>
+                        <a href="#" class="read-more">阅读全文</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="date">2024年1月5日</span>
+                            <span class="category">生活</span>
+                        </div>
+                        <h3 class="article-title">咖啡与代码的完美结合</h3>
+                        <p class="article-excerpt">作为一名程序员，咖啡已经成为我生活中不可或缺的一部分。今天来聊聊咖啡文化...</p>
+                        <a href="#" class="read-more">阅读全文</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="date">2024年1月1日</span>
+                            <span class="category">技术</span>
+                        </div>
+                        <h3 class="article-title">2024年前端技术趋势预测</h3>
+                        <p class="article-excerpt">新的一年开始了，让我们来看看2024年前端技术发展的趋势和值得关注的新技术...</p>
+                        <a href="#" class="read-more">阅读全文</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">关于我</h2>
+                    <p>你好！我是一名热爱技术的开发者，专注于前端开发和用户体验设计。在这个博客中，我会分享我的技术学习心得、项目经验以及对生活的思考。</p>
+                    <p>我相信技术不仅仅是工具，更是连接想法与现实的桥梁。希望通过这个博客，能够与更多志同道合的朋友交流学习。</p>
+                    <div class="skills">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">HTML</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="avatar-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我</h2>
+            <div class="contact-content">
+                <p>如果你对我的文章有任何想法，或者想要一起交流学习，欢迎通过以下方式联系我：</p>
+                <div class="contact-links">
+                    <a href="mailto:your-email@example.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>邮箱</span>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 我的博客. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
