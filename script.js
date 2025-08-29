@@ -106,13 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
 
-        // 点击文章卡片的动画效果
-        card.addEventListener('click', function() {
-            this.style.transform = 'translateY(-8px) scale(0.98)';
-            setTimeout(() => {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            }, 150);
-        });
+        // 移除文章卡片的点击事件，避免与阅读全文按钮冲突
     });
 
     // 联系链接悬停效果
@@ -693,21 +687,40 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactSection = document.getElementById('contact');
     const backButton = document.getElementById('back-to-list');
 
-    // 处理阅读全文点击事件 - 使用事件委托
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('read-more')) {
-            e.preventDefault();
-            const articleId = e.target.getAttribute('data-article-id');
-            console.log('点击了阅读全文，文章ID:', articleId);
+    // 处理阅读全文点击事件 - 直接绑定
+    function bindReadMoreEvents() {
+        const readMoreButtons = document.querySelectorAll('.read-more');
+        console.log('绑定阅读全文事件，找到按钮数量:', readMoreButtons.length);
+        
+        readMoreButtons.forEach((button, index) => {
+            const articleId = button.getAttribute('data-article-id');
+            console.log(`按钮 ${index + 1} 的文章ID:`, articleId);
             
-            if (articleId && articlesData[articleId]) {
-                showArticleDetail(articleId);
-            } else {
-                console.error('未找到文章数据，ID:', articleId);
-                alert('文章内容暂时无法加载，请稍后再试。');
-            }
+            // 移除旧的事件监听器
+            button.removeEventListener('click', handleReadMore);
+            
+            // 添加新的事件监听器
+            button.addEventListener('click', handleReadMore);
+        });
+    }
+    
+    function handleReadMore(e) {
+        e.preventDefault();
+        e.stopPropagation(); // 阻止事件冒泡
+        
+        const articleId = this.getAttribute('data-article-id');
+        console.log('点击了阅读全文，文章ID:', articleId);
+        
+        if (articleId && articlesData[articleId]) {
+            showArticleDetail(articleId);
+        } else {
+            console.error('未找到文章数据，ID:', articleId);
+            alert('文章内容暂时无法加载，请稍后再试。');
         }
-    });
+    }
+    
+    // 绑定事件
+    bindReadMoreEvents();
 
     // 显示文章详情
     function showArticleDetail(articleId) {

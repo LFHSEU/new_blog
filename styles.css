@@ -411,12 +411,23 @@ body {
 .read-more {
     color: var(--primary-color);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: var(--transition);
+    position: relative;
+    z-index: 10;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 2px solid var(--primary-color);
+    display: inline-block;
+    cursor: pointer;
 }
 
 .read-more:hover {
-    color: var(--primary-dark);
+    color: white;
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 /* 关于我区域 */
