@@ -695,18 +695,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 处理阅读全文点击事件
     const readMoreButtons = document.querySelectorAll('.read-more');
-    readMoreButtons.forEach(button => {
+    console.log('找到阅读全文按钮数量:', readMoreButtons.length);
+    
+    readMoreButtons.forEach((button, index) => {
+        const articleId = button.getAttribute('data-article-id');
+        console.log(`按钮 ${index + 1} 的文章ID:`, articleId);
+        
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            const articleId = this.getAttribute('data-article-id');
+            console.log('点击了文章ID:', articleId);
             showArticleDetail(articleId);
         });
     });
 
     // 显示文章详情
     function showArticleDetail(articleId) {
+        console.log('尝试显示文章详情，ID:', articleId);
+        console.log('文章数据:', articlesData);
         const article = articlesData[articleId];
-        if (!article) return;
+        console.log('找到的文章:', article);
+        if (!article) {
+            console.error('未找到文章数据，ID:', articleId);
+            return;
+        }
 
         // 填充文章内容
         document.getElementById('detail-date').textContent = article.date;
