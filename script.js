@@ -693,52 +693,79 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactSection = document.getElementById('contact');
     const backButton = document.getElementById('back-to-list');
 
-    // 处理阅读全文点击事件
-    const readMoreButtons = document.querySelectorAll('.read-more');
-    console.log('找到阅读全文按钮数量:', readMoreButtons.length);
-    
-    readMoreButtons.forEach((button, index) => {
-        const articleId = button.getAttribute('data-article-id');
-        console.log(`按钮 ${index + 1} 的文章ID:`, articleId);
-        
-        button.addEventListener('click', function(e) {
+    // 处理阅读全文点击事件 - 使用事件委托
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('read-more')) {
             e.preventDefault();
-            console.log('点击了文章ID:', articleId);
-            showArticleDetail(articleId);
-        });
+            const articleId = e.target.getAttribute('data-article-id');
+            console.log('点击了阅读全文，文章ID:', articleId);
+            
+            if (articleId && articlesData[articleId]) {
+                showArticleDetail(articleId);
+            } else {
+                console.error('未找到文章数据，ID:', articleId);
+                alert('文章内容暂时无法加载，请稍后再试。');
+            }
+        }
     });
 
     // 显示文章详情
     function showArticleDetail(articleId) {
-        console.log('尝试显示文章详情，ID:', articleId);
-        console.log('文章数据:', articlesData);
+        console.log('开始显示文章详情，ID:', articleId);
+        
         const article = articlesData[articleId];
-        console.log('找到的文章:', article);
         if (!article) {
             console.error('未找到文章数据，ID:', articleId);
+            alert('文章数据不存在');
             return;
         }
 
-        // 填充文章内容
-        document.getElementById('detail-date').textContent = article.date;
-        document.getElementById('detail-category').textContent = article.category;
-        document.getElementById('detail-title').textContent = article.title;
-        document.getElementById('detail-icon').className = article.icon;
-        document.getElementById('detail-body').innerHTML = article.content;
+        console.log('找到文章数据:', article.title);
 
-        // 隐藏主要内容区域
-        articlesSection.style.display = 'none';
-        aboutSection.style.display = 'none';
-        contactSection.style.display = 'none';
+        try {
+            // 填充文章内容
+            const detailDate = document.getElementById('detail-date');
+            const detailCategory = document.getElementById('detail-category');
+            const detailTitle = document.getElementById('detail-title');
+            const detailIcon = document.getElementById('detail-icon');
+            const detailBody = document.getElementById('detail-body');
 
-        // 显示文章详情
-        articleDetail.style.display = 'block';
+            if (!detailDate || !detailCategory || !detailTitle || !detailIcon || !detailBody) {
+                console.error('文章详情页面元素未找到');
+                alert('页面元素缺失，请刷新页面重试');
+                return;
+            }
 
-        // 滚动到顶部
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+            detailDate.textContent = article.date;
+            detailCategory.textContent = article.category;
+            detailTitle.textContent = article.title;
+            detailIcon.className = article.icon;
+            detailBody.innerHTML = article.content;
 
-        // 更新URL（可选）
-        history.pushState({ articleId }, article.title, `#article-${articleId}`);
+            // 隐藏主要内容区域
+            if (articlesSection) articlesSection.style.display = 'none';
+            if (aboutSection) aboutSection.style.display = 'none';
+            if (contactSection) contactSection.style.display = 'none';
+
+            // 显示文章详情
+            if (articleDetail) {
+                articleDetail.style.display = 'block';
+                console.log('文章详情页面已显示');
+            } else {
+                console.error('文章详情区域未找到');
+                return;
+            }
+
+            // 滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // 更新URL
+            history.pushState({ articleId }, article.title, `#article-${articleId}`);
+            
+        } catch (error) {
+            console.error('显示文章详情时出错:', error);
+            alert('加载文章时出现错误，请刷新页面重试');
+        }
     }
 
     // 返回文章列表
@@ -782,5 +809,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // 初始化检查
+    console.log('=== 博客页面初始化检查 ===');
+    console.log('文章详情区域:', document.getElementById('article-detail'));
+    console.log('文章数据:', Object.keys(articlesData));
+    console.log('阅读全文按钮:', document.querySelectorAll('.read-more').length);
+    
+    // 测试函数
+    window.testArticleDetail = function(id) {
+        console.log('测试显示文章', id);
+        showArticleDetail(id);
+    };
+    
     console.log('🎉 博客页面已加载完成！');
+    console.log('💡 可以在控制台输入 testArticleDetail(1) 来测试文章详情功能');
 });
