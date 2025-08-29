@@ -131,7 +131,55 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.style.transform = 'scale(1) rotate(0deg)';
             }
         });
+
+        // 微信联系方式特殊处理
+        if (link.classList.contains('wechat')) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                showWeChatModal();
+            });
+        }
     });
+
+    // 微信二维码模态框
+    function showWeChatModal() {
+        const modal = document.createElement('div');
+        modal.className = 'wechat-modal';
+        modal.innerHTML = `
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>微信联系方式</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="wechat-info">
+                        <i class="fab fa-weixin wechat-icon"></i>
+                        <p>微信号：<strong>LFH038188</strong></p>
+                        <p class="wechat-tip">请添加微信好友并注明来意</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // 关闭模态框
+        const closeModal = () => {
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(modal);
+            }, 300);
+        };
+
+        modal.querySelector('.modal-close').addEventListener('click', closeModal);
+        modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+
+        // 显示动画
+        setTimeout(() => {
+            modal.style.opacity = '1';
+        }, 10);
+    }
 
     // 技能标签动画效果
     const skillTags = document.querySelectorAll('.skill-tag');
