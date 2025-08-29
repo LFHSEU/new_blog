@@ -580,3 +580,141 @@ body {
     background: var(--primary-color);
     color: white;
 }
+
+/* 文章详情页面样式 */
+.article-detail {
+    padding: 6rem 0;
+    background-color: var(--background);
+    min-height: 100vh;
+}
+
+.article-detail-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.back-button:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.full-article {
+    background: var(--background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.article-header {
+    padding: 2rem;
+    background: var(--surface);
+}
+
+.article-header .article-meta {
+    margin-bottom: 1rem;
+}
+
+.article-header .article-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.article-header .article-image {
+    height: 300px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.article-header .image-placeholder {
+    height: 100%;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+}
+
+.article-body {
+    padding: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.article-body h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    color: var(--text-primary);
+}
+
+.article-body h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem 0;
+    color: var(--text-primary);
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+}
+
+.article-body ul, .article-body ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.article-body li {
+    margin-bottom: 0.5rem;
+}
+
+.article-body blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    background: var(--surface);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    font-style: italic;
+}
+
+.article-body code {
+    background: var(--surface);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.article-body pre {
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.article-body pre code {
+    background: none;
+    padding: 0;
+}

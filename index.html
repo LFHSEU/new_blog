@@ -50,7 +50,7 @@
         <div class="container">
             <h2 class="section-title">最新文章</h2>
             <div class="articles-grid">
-                <article class="article-card">
+                <article class="article-card" data-article-id="1">
                     <div class="article-image">
                         <div class="image-placeholder">
                             <i class="fas fa-code"></i>
@@ -63,11 +63,11 @@
                         </div>
                         <h3 class="article-title">现代前端开发最佳实践</h3>
                         <p class="article-excerpt">探索现代前端开发中的最佳实践，包括组件化架构、状态管理、性能优化等关键概念...</p>
-                        <a href="#" class="read-more">阅读全文</a>
+                        <a href="#" class="read-more" data-article-id="1">阅读全文</a>
                     </div>
                 </article>
 
-                <article class="article-card">
+                <article class="article-card" data-article-id="2">
                     <div class="article-image">
                         <div class="image-placeholder">
                             <i class="fas fa-lightbulb"></i>
@@ -80,11 +80,11 @@
                         </div>
                         <h3 class="article-title">关于学习方法的一些思考</h3>
                         <p class="article-excerpt">在这个信息爆炸的时代，如何有效地学习新知识？分享一些个人的学习心得和方法...</p>
-                        <a href="#" class="read-more">阅读全文</a>
+                        <a href="#" class="read-more" data-article-id="2">阅读全文</a>
                     </div>
                 </article>
 
-                <article class="article-card">
+                <article class="article-card" data-article-id="3">
                     <div class="article-image">
                         <div class="image-placeholder">
                             <i class="fas fa-coffee"></i>
@@ -97,11 +97,11 @@
                         </div>
                         <h3 class="article-title">咖啡与代码的完美结合</h3>
                         <p class="article-excerpt">作为一名程序员，咖啡已经成为我生活中不可或缺的一部分。今天来聊聊咖啡文化...</p>
-                        <a href="#" class="read-more">阅读全文</a>
+                        <a href="#" class="read-more" data-article-id="3">阅读全文</a>
                     </div>
                 </article>
 
-                <article class="article-card">
+                <article class="article-card" data-article-id="4">
                     <div class="article-image">
                         <div class="image-placeholder">
                             <i class="fas fa-rocket"></i>
@@ -114,7 +114,35 @@
                         </div>
                         <h3 class="article-title">2025年前端技术趋势预测</h3>
                         <p class="article-excerpt">新的一年开始了，让我们来看看2025年前端技术发展的趋势和值得关注的新技术...</p>
-                        <a href="#" class="read-more">阅读全文</a>
+                        <a href="#" class="read-more" data-article-id="4">阅读全文</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文章详情页面 -->
+    <section id="article-detail" class="article-detail" style="display: none;">
+        <div class="container">
+            <div class="article-detail-content">
+                <button class="back-button" id="back-to-list">
+                    <i class="fas fa-arrow-left"></i> 返回文章列表
+                </button>
+                <article class="full-article">
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="date" id="detail-date"></span>
+                            <span class="category" id="detail-category"></span>
+                        </div>
+                        <h1 class="article-title" id="detail-title"></h1>
+                        <div class="article-image">
+                            <div class="image-placeholder" id="detail-image">
+                                <i id="detail-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-body" id="detail-body">
+                        <!-- 文章内容将通过JavaScript动态加载 -->
                     </div>
                 </article>
             </div>
